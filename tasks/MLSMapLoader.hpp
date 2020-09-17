@@ -16,7 +16,6 @@ namespace envire_maps
 
     protected:
         virtual void publishMap();
-        bool initialize();
 
         virtual void createMLS(const pcl::PointCloud<pcl::PointXYZ>& pc,
                                maps::grid::Vector2ui gridSize,
@@ -33,4 +32,3 @@ namespace envire_maps
 }
 
 #endif
-

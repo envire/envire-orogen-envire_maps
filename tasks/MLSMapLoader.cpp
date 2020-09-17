@@ -42,8 +42,7 @@ bool MLSMapLoader::configureHook()
 {
     if (! MLSMapLoaderBase::configureHook())
         return false;
- 
-//    std::ifstream fileIn(_path);       
+
     pcl::PointCloud<pcl::PointXYZ> cloud;
     pcl::PLYReader plyReader;
     if (plyReader.read(_path, cloud) < 0)
