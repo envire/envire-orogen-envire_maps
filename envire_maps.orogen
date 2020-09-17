@@ -93,3 +93,39 @@ typekit do
                  *envire_maps
 end
 
+# Abstract map laoder for MLS maps.
+task_context "MLSMapLoader" do
+
+    property('path', 'std/string')
+    .doc("File location of the PLY to load.")
+
+    property('resolution', 'double', 0.1)
+    .doc("Cell size of the generated MLS map.")
+
+    property('mls_config', 'maps/grid/MLSConfig')
+    .doc("Parameters of the generated MLS map.")
+
+    property('map_frame', 'std/string', "static_map")
+    .doc("Envire frame the map will be attached to.")
+
+    operation('publishMap')
+    .doc("Writes the map to the port.")
+
+    periodic(1.0)
+end
+
+# Loads a pointcloud from a ply file and generates a MLS<KALMAN> from it.
+task_context "MLSMapKalmanLoader" do
+    subclasses "MLSMapLoader"
+    
+    output_port('map', spatio_temporal('/maps/grid/MLSMap</maps/grid/MLSConfig/KALMAN>'))
+    .doc("Generated MLS map, request via publishMap operation.")
+end
+
+# Loads a pointcloud from a ply file and generates a MLS<SLOPE> from it.
+task_context "MLSMapSlopeLoader" do
+    subclasses "MLSMapLoader"
+    
+    output_port('map', spatio_temporal('/maps/grid/MLSMap</maps/grid/MLSConfig/SLOPE>'))
+    .doc("Generated MLS map, request via publishMap operation.")
+end
