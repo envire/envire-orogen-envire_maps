@@ -109,6 +109,7 @@ task_context "MLSMapLoader" do
     .doc("Envire frame the map will be attached to.")
 
     operation('publishMap')
+   	.returns("bool")
     .doc("Writes the map to the port.")
 
     periodic(1.0)

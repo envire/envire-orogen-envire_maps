@@ -27,14 +27,16 @@ void MLSMapLoader::writeMLS()
     std::cerr << "Not implemented, this Task is abstract!" << std::endl;
 }
 
-void MLSMapLoader::publishMap()
+bool MLSMapLoader::publishMap()
 {
     if(mMapLoaded)
     {
         writeMLS();
+        return true;
     }else
     {
         std::cerr << "No map loaded!" << std::endl;
+        return false;
     }
 }
 
