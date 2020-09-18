@@ -25,7 +25,7 @@ namespace envire_maps
 
     public:
         MLSMapLoader(std::string const& name = "envire_maps::MLSMapLoader", TaskCore::TaskState initial_state = Stopped);
-        ~MLSMapLoader();
+        virtual ~MLSMapLoader();
 
         bool configureHook();
     };
