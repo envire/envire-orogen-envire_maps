@@ -7,6 +7,5 @@
     <license>BSD</license>
     <url>http://envire.github.io</url>
     <depend package="base/cmake" />
-    <depend package="envire/orogen/envire_core" />
-    <depend package="envire/envire_maps" />
+    <depend package="slam/maps" />
 </package>
