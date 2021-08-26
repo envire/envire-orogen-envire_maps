@@ -83,13 +83,7 @@ maps = ['/maps/grid/GridMap</char>',
 
 # type exports
 typekit do
-    envire_maps = []
-    maps.each do |map|
-        envire_maps.push spatio_temporal map
-    end
-
-    export_types *maps,
-                 *envire_maps
+    export_types *maps
 end
 
 # Abstract map laoder for MLS maps.
@@ -104,9 +98,6 @@ task_context "MLSMapLoader" do
     property('mls_config', 'maps/grid/MLSConfig')
     .doc("Parameters of the generated MLS map.")
 
-    property('map_frame', 'std/string', "static_map")
-    .doc("Envire frame the map will be attached to.")
-
     operation('publishMap')
    	.returns("bool")
     .doc("Writes the map to the port.")
@@ -118,7 +109,7 @@ end
 task_context "MLSMapKalmanLoader" do
     subclasses "MLSMapLoader"
     
-    output_port('map', spatio_temporal('/maps/grid/MLSMap</maps/grid/MLSConfig/KALMAN>'))
+    output_port('map', '/maps/grid/MLSMap</maps/grid/MLSConfig/KALMAN>')
     .doc("Generated MLS map, request via publishMap operation.")
 end
 
@@ -126,6 +117,7 @@ end
 task_context "MLSMapSlopeLoader" do
     subclasses "MLSMapLoader"
     
-    output_port('map', spatio_temporal('/maps/grid/MLSMap</maps/grid/MLSConfig/SLOPE>'))
+    output_port('map', '/maps/grid/MLSMap</maps/grid/MLSConfig/SLOPE>')
     .doc("Generated MLS map, request via publishMap operation.")
 end
+

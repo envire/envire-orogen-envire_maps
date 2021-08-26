@@ -10,7 +10,7 @@ namespace envire_maps
     friend class MLSMapSlopeLoaderBase;
 
     private:
-        envire::core::SpatioTemporal<maps::grid::MLSMapSloped> mMap;
+        maps::grid::MLSMapSloped mMap;
 
     protected:
         void createMLS(const pcl::PointCloud<pcl::PointXYZ>& pc,

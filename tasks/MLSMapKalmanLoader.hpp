@@ -10,7 +10,7 @@ namespace envire_maps
     friend class MLSMapKalmanLoaderBase;
 
     private:
-        envire::core::SpatioTemporal<maps::grid::MLSMapKalman> mMap;
+        maps::grid::MLSMapKalman mMap;
 
     protected:
         void createMLS(const pcl::PointCloud<pcl::PointXYZ>& pc,

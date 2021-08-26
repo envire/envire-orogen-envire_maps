@@ -8,4 +8,5 @@
     <url>http://envire.github.io</url>
     <depend package="base/cmake" />
     <depend package="slam/maps" />
+    <depend package="envire/orogen/envire_orogen" />
 </package>
